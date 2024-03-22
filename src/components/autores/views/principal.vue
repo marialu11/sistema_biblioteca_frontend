@@ -1,11 +1,21 @@
 <template>
-    <v-card>>
-        <v-row>
-            <v-col cols="3">
-                <v-card subtitle="This is a subtitle" text="This is content" title="This is a title" width="400">
-                    <v-card></v-card>
-                </v-card>
-            </v-col>
-        </v-row>
+    <v-card>
+        <Table :headers="headersAutor" :items="autores"></Table>
     </v-card>
 </template>
+
+<script setup>
+import Table from '../../components/table.vue';
+import { onMounted } from 'vue';
+import { autores, getAutores } from '../../composables/tableData';
+import { headersAutor } from '../../composables/useHeaders';
+
+onMounted(async () => {
+    try {
+        await getAutores();
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+</script>
