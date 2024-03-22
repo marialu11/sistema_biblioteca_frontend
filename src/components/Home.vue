@@ -1,30 +1,32 @@
+import { RouterLink } from 'vue-router';
 <template>
-    <v-card class="mx-auto my-8" elevation="16" max-width="344">
-        <v-card-item>
-            <v-card-title>
-                ¿Qué desea hacer?
-            </v-card-title>
-        </v-card-item>
-        <v-card-actions>
-            <v-row align="center" justify="center">
-                <v-col cols="auto">
-                    <router-link :to="{ name: 'biller', params: null }" type="button">
-                        <v-btn>Libros</v-btn>
-                    </router-link>
-                </v-col>
-
-                <v-col cols="auto">
-                    <v-btn>Autores</v-btn>
-                </v-col>
-            </v-row>
+    <v-card elevation="16" width="700">
+        <v-card-title class="mb-3">
+            <span class="font-weight-bold text-h6">¿Qué desea hacer?</span>
+        </v-card-title>
+        <v-card-text class="mb-2">
             <v-row>
-                <v-col cols="auto">
-                    <v-btn density="default">Préstamos</v-btn>
+                <v-col>
+                    <RouterLink :to="{ name: 'libros', params: null }" type="button">
+                        <v-btn>Libros</v-btn>
+                    </RouterLink>
                 </v-col>
-                <v-col cols="auto">
-                    <v-btn density="default">Usuarios</v-btn>
+                <v-col>
+                    <RouterLink :to="{ name: 'autores', params: null }" type="button">
+                        <v-btn>Autores</v-btn>
+                    </RouterLink>
+                </v-col>
+                <v-col>
+                    <RouterLink :to="{ name: 'prestamos', params: null }" type="button">
+                        <v-btn density="default">Préstamos</v-btn>
+                    </RouterLink>
+                </v-col>
+                <v-col>
+                    <RouterLink :to="{ name: 'usuarios', params: null }" type="button">
+                        <v-btn density="default">Usuarios</v-btn>
+                    </RouterLink>
                 </v-col>
             </v-row>
-        </v-card-actions>
+        </v-card-text>
     </v-card>
 </template>
